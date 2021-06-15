@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+if [[ $# -ne 1 ]] ; then
+    echo 'Usage: ./setup INSTANCE_NAME'
+    exit 1
+fi
+
+if [[ "$1" = "real" ]] ; then
+    echo $1 > instance
+else
+    echo 'INSTANCE_NAME must be one of [real]'
+    exit 1
+fi
