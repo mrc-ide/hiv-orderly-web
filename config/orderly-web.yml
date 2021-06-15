@@ -62,8 +62,12 @@ orderly:
   workers: 1
   env:
     ORDERLY_API_SERVER_IDENTITY: main
-    VAULT_AUTH_GITHUB_TOKEN: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:key
+    ## VIMC-3692
+    VAULT_AUTH_GITHUB_TOKEN: mustexist
     MC_CORES: 4
+  ssh:
+    public: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:pub
+    private: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:key
 
 ## Api and Website configuration
 web:
