@@ -125,8 +125,8 @@ web:
 ## If running a proxy directly, fill this section in.  Otherwise you
 ## are responsible for proxying the application out of the docker
 ## network
-#proxy:
-#  enabled: true
+proxy:
+  enabled: true
 #  ssl:
     ## This section describes how to get the certificate in.  We
     ## support two sources:
@@ -138,13 +138,13 @@ web:
     ##    string to extract them from the vault.
 #    certificate: VAULT:secret/hiv-orderly/proxy/ssl_certificate:value
 #    key: VAULT:secret/hiv-orderly/proxy/ssl_private_key:value
-#  hostname: hiv-orderly.dide.ic.ac.uk
-#  port_http: 80
-#  port_https: 443
-#  image:
-#    repo: vimc
-#    name: orderly-web-proxy
-#    tag: master
+  hostname: hiv-orderly.dide.ic.ac.uk
+  port_http: 80
+  port_https: 443
+  image:
+    repo: vimc
+    name: orderly-web-proxy
+    tag: master
 
 ## Redis configuration
 redis:
