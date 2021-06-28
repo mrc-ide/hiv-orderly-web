@@ -127,7 +127,7 @@ web:
 ## network
 proxy:
   enabled: true
-#  ssl:
+  ssl:
     ## This section describes how to get the certificate in.  We
     ## support two sources:
     ##
@@ -136,8 +136,8 @@ proxy:
     ## 2. certificates from strings - include the strings directly in
     ##    the keys here, or more likely use a VAULT:<path>:<key>
     ##    string to extract them from the vault.
-#    certificate: VAULT:secret/hiv-orderly/proxy/ssl_certificate:value
-#    key: VAULT:secret/hiv-orderly/proxy/ssl_private_key:value
+    certificate: VAULT:secret/hiv-orderly/proxy/ssl_certificate:value
+    key: VAULT:secret/hiv-orderly/proxy/ssl_private_key:value
   hostname: hiv-orderly.dide.ic.ac.uk
   port_http: 80
   port_https: 443
