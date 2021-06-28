@@ -137,7 +137,7 @@ proxy:
     ##    the keys here, or more likely use a VAULT:<path>:<key>
     ##    string to extract them from the vault.
     certificate: VAULT:secret/hiv-orderly/proxy/ssl_certificate:value
-    key: VAULT:secret/hiv-orderly/proxy/ssl_private_key:value
+    key: VAULT:secret/hiv-orderly/proxy/ssl_private_key:key
   hostname: hiv-orderly.dide.ic.ac.uk
   port_http: 80
   port_https: 443
