@@ -65,6 +65,8 @@ orderly:
     ## VIMC-3692
     VAULT_AUTH_GITHUB_TOKEN: mustexist
     MC_CORES: 4
+    SHAREPOINT_USERNAME: VAULT:secret/hiv-orderly/sharepoint:username
+    SHAREPOINT_PASS: VAULT:secret/hiv-orderly/sharepoint:pass
   ssh:
     public: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:pub
     private: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:key
