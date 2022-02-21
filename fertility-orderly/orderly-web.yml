@@ -58,7 +58,7 @@ orderly:
     tag: main
   initial:
     source: clone
-    url: git@github.com:mrc-ide/fertility-orderly
+    url: git@github.com:osymandius/fertility-orderly
   workers: 1
   env:
     ORDERLY_API_SERVER_IDENTITY: main
