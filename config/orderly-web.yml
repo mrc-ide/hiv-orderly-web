@@ -95,7 +95,7 @@ web:
   ## ports).  Here, we're going to use the same as for the proxy but
   ## if you are using an external proxy then you'd use its hostname
   ## and port.
-  url: https://hiv-orderly.dide.ic.ac.uk
+  url: https://hiv-orderly.dide.ic.ac.uk/naomi
   ## If dev_mode is true then the port is exposed to the host (as
   ## plain http).  Do not use in production.  The port is attached
   ## only to the localhost and will not be available from other
@@ -112,8 +112,8 @@ web:
     github_org: mrc-ide
     github_team: hiv-orderly
     github_oauth:
-      id: VAULT:secret/hiv-orderly/oauth:id
-      secret: VAULT:secret/hiv-orderly/oauth:secret
+      id: VAULT:secret/hiv/hiv-orderly-naomi/oauth:id
+      secret: VAULT:secret/hiv/hiv-orderly-naomi/oauth:secret
     fine_grained: false
     montagu: false
   ## Optional sass variables to override default styles. Should be a
