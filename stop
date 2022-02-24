@@ -1,3 +1,25 @@
 #!/usr/bin/env bash
 set -e
-orderly-web stop ./config
+
+function stop_proxy {
+  docker run
+}
+
+function stop_ow {
+  orderly-web stop $1
+}
+
+for var in "$@"; do
+  if [ $var == "all" ]; then
+    ## List all config directories i.e. all directories except "scripts"
+    configs = `find * -type d | egrep -v '^scripts/|/scripts/|scripts'`
+    stop_proxy
+    for conf in $configs; do
+      stop_ow $conf
+    done
+  elif [ $var == "proxy" ]; then
+    stop_proxy
+  else
+    stop_ow $var
+  fi
+done
