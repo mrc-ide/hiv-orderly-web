@@ -145,9 +145,9 @@ proxy:
   port_http: 80
   port_https: 443
   image:
-    repo: vimc
-    name: orderly-web-proxy
-    tag: master
+    repo: mrcide
+    name: hiv-orderly-proxy
+    tag: latest
 
 ## Redis configuration
 redis:
