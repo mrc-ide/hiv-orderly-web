@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
-### TODO: THInk about how this is going to be started - the proxy is going
-## to need creds added from vault, the OW deploy already does this
-## maybe makes more sense to add this to there?
-## Either way think a bit more about how this is all fitting together
+usage="Start all or specific orderly web instances
+Usage: $(basename "$0") [-h] (all | <configname>...)
 
-function start_proxy {
-  docker run mrcide/hiv-orderly-proxy:latest
-}
+Options:
+    -h  Show this help text"
+
+while getopts 'h' option; do
+  case "$option" in
+  h)
+    echo "$usage"
+    exit 0
+    ;;
+  esac
+done
 
 function start_ow {
   orderly-web start $1 --pull
@@ -17,15 +23,11 @@ function start_ow {
 for var in "$@"; do
   if [ $var == "all" ]; then
     ## List all config directories i.e. all directories except "scripts"
-    configs = `find * -type d | egrep -v '^scripts/|/scripts/|scripts'`
-    start_proxy
+    configs = $(find * -type d | egrep -v '^scripts/|/scripts/|scripts')
     for conf in $configs; do
       start_ow $conf
     done
-  elif [ $var == "proxy" ]; then
-    start_proxy
   else
     start_ow $var
   fi
 done
-
