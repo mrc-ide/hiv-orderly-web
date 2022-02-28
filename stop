@@ -23,7 +23,7 @@ function stop_ow {
 for var in "$@"; do
   if [ $var == "all" ]; then
     ## List all config directories i.e. all directories except "scripts"
-    configs = `find * -type d | egrep -v '^scripts/|/scripts/|scripts'`
+    configs=`find * -type d | egrep -v '^scripts/|/scripts/|scripts'`
     for conf in $configs; do
       stop_ow $conf
     done
