@@ -7,6 +7,11 @@ Usage: $(basename "$0") [-h] (all | <configname>...)
 Options:
     -h  Show this help text"
 
+if [[ $# -eq 0 ]] ; then
+    echo "$usage"
+    exit 0
+fi
+
 while getopts 'h' option; do
   case "$option" in
   h)
