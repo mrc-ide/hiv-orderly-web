@@ -7,18 +7,24 @@ Usage: $(basename "$0") [-h] (all | <configname>...)
 Options:
     -h  Show this help text"
 
-if [[ $# -eq 0 ]] ; then
-    echo "$usage"
-    exit 0
+if [[ -z "$@" ]]; then
+    echo "$USAGE"
+    exit 1
 fi
+OPTIONS=$(getopt -o h -- "$@")
 
-while getopts 'h' option; do
-  case "$option" in
-  h)
-    echo "$usage"
-    exit 0
-    ;;
-  esac
+eval set -- "$OPTIONS"
+while true; do
+    case "$1" in
+    -h)
+        echo "$USAGE"
+        exit 0
+        ;;
+    --)
+        shift
+        break
+        ;;
+    esac
 done
 
 function start_ow {

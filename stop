@@ -1,28 +1,38 @@
 #!/usr/bin/env bash
-set -e
 
-usage="Stop all or specific orderly web instances
-Usage: $(basename "$0") [-h] (all | <configname>...)
+USAGE="Stop all or specific orderly web instances
+Usage: $(basename "$0") [-h] [--kill] (all | <configname>...)
 
 Options:
-    -h  Show this help text"
+    -h      Show this help text
+    --kill  Kill the containers (faster, but possible db corruption)"
 
-if [[ $# -eq 0 ]] ; then
-    echo "$usage"
-    exit 0
+if [[ -z "$@" ]]; then
+    echo "$USAGE"
+    exit 1
 fi
+OPTIONS=$(getopt -o h --long kill -- "$@")
 
-while getopts 'h' option; do
-  case "$option" in
-  h)
-    echo "$usage"
-    exit 0
-    ;;
-  esac
+eval set -- "$OPTIONS"
+while true; do
+    case "$1" in
+    -h)
+        echo "$USAGE"
+        exit 0
+        ;;
+    --kill)
+        KILL="--kill"
+        shift
+        ;;
+    --)
+        shift
+        break
+        ;;
+    esac
 done
 
 function stop_ow {
-  orderly-web stop $1
+  orderly-web stop $1 $KILL
 }
 
 for var in "$@"; do
