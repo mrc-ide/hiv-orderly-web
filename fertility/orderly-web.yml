@@ -100,7 +100,7 @@ web:
   ## plain http).  Do not use in production.  The port is attached
   ## only to the localhost and will not be available from other
   ## machines
-  dev_mode: true
+  dev_mode: false
   ## Port to use for the web service
   port: 8881
   ## Name of the web service (affects the UI)
