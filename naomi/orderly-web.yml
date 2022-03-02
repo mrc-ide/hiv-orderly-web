@@ -106,7 +106,7 @@ web:
   ## Name of the web service (affects the UI)
   name: Outputs
   ## Email address of the web service
-  email: r.fitzjohn@imperial.ac.uk
+  email: r.ashton@imperial.ac.uk
   ## Authentication configuration
   auth:
     github_org: mrc-ide
