@@ -23,7 +23,7 @@ vault:
 ## OrderlyWeb, then change the prefix, then start it back up.
 ## Otherwise OrderlyWeb will not take down the required containers
 ## before starting back up.
-container_prefix: orderly_web
+container_prefix: naomi
 
 ## The name of the docker network that containers will be attached to.
 ## If you want to proxy OrderlyWeb to the host, you will need to
@@ -95,7 +95,7 @@ web:
   ## ports).  Here, we're going to use the same as for the proxy but
   ## if you are using an external proxy then you'd use its hostname
   ## and port.
-  url: https://hiv-orderly.dide.ic.ac.uk
+  url: https://hiv-orderly.dide.ic.ac.uk/naomi
   ## If dev_mode is true then the port is exposed to the host (as
   ## plain http).  Do not use in production.  The port is attached
   ## only to the localhost and will not be available from other
@@ -106,14 +106,14 @@ web:
   ## Name of the web service (affects the UI)
   name: Outputs
   ## Email address of the web service
-  email: r.fitzjohn@imperial.ac.uk
+  email: r.ashton@imperial.ac.uk
   ## Authentication configuration
   auth:
     github_org: mrc-ide
     github_team: hiv-orderly
     github_oauth:
-      id: VAULT:secret/hiv-orderly/oauth:id
-      secret: VAULT:secret/hiv-orderly/oauth:secret
+      id: VAULT:secret/hiv/hiv-orderly-naomi/oauth:id
+      secret: VAULT:secret/hiv/hiv-orderly-naomi/oauth:secret
     fine_grained: false
     montagu: false
   ## Optional sass variables to override default styles. Should be a
@@ -145,9 +145,9 @@ proxy:
   port_http: 80
   port_https: 443
   image:
-    repo: vimc
-    name: orderly-web-proxy
-    tag: master
+    repo: mrcide
+    name: hiv-orderly-proxy
+    tag: latest
 
 ## Redis configuration
 redis:

@@ -1,3 +1,50 @@
 #!/usr/bin/env bash
 set -e
-orderly-web start ./config --pull "$@"
+
+usage="Start all or specific orderly web instances
+Usage: $(basename "$0") [-h] (all | <configname>...)
+
+Options:
+    -h  Show this help text"
+
+if [[ -z "$@" ]]; then
+    echo "$USAGE"
+    exit 1
+fi
+OPTIONS=$(getopt -o h -- "$@")
+
+eval set -- "$OPTIONS"
+while true; do
+    case "$1" in
+    -h)
+        echo "$USAGE"
+        exit 0
+        ;;
+    --)
+        shift
+        break
+        ;;
+    esac
+done
+
+function start_ow {
+  orderly-web start $1 --pull
+  ## Ideally this wouldn't be hardcoded but we can add to orderly deploy later
+  if [[ $1 != "naomi" ]]; then
+    docker network connect $1_nw naomi_proxy
+  fi
+}
+
+for var in "$@"; do
+  if [ $var == "all" ]; then
+    ## List all config directories i.e. all directories except "scripts"
+    ## and "naomi", manually start "naomi" first as this contains the proxy
+    configs=$(find * -type d | egrep -v 'scripts|naomi')
+    start_ow naomi
+    for conf in $configs; do
+      start_ow $conf
+    done
+  else
+    start_ow $var
+  fi
+done
