@@ -31,7 +31,9 @@ function start_ow {
   orderly-web start $1 --pull
   ## Ideally this wouldn't be hardcoded but we can add to orderly deploy later
   if [[ $1 != "naomi" ]]; then
-    docker network connect $1_nw naomi_proxy
+    ## Ignore error from this as if we are not bringing up the naomi_proxy at the
+    ## same time it might still be connected to the network
+    docker network connect $1_nw naomi_proxy || true
   fi
 }
 
