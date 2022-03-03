@@ -113,8 +113,8 @@ web:
     github_team: hiv-orderly
     ## Going to have to update this when we add a separate app (app has its own redirect)
     github_oauth:
-      id: VAULT:secret/hiv/hiv-orderly-naomi/oauth:id
-      secret: VAULT:secret/hiv/hiv-orderly-naomi/oauth:secret
+      id: VAULT:secret/hiv/hiv-orderly-fertility/oauth:id
+      secret: VAULT:secret/hiv/hiv-orderly-fertility/oauth:secret
     fine_grained: false
     montagu: false
   ## Optional sass variables to override default styles. Should be a
