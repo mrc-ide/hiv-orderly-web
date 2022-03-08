@@ -65,9 +65,13 @@ orderly:
     ## VIMC-3692
     VAULT_AUTH_GITHUB_TOKEN: mustexist
     MC_CORES: 4
+    ADR_KEY: VAULT:secret/hiv-orderly/adr:key
+    ## Sharepoint access
     SHAREPOINT_USERNAME: VAULT:secret/hiv-orderly/sharepoint:username
     SHAREPOINT_PASS: VAULT:secret/hiv-orderly/sharepoint:pass
-    ADR_KEY: VAULT:secret/hiv-orderly/adr:key
+    SHAREPOINT_URL: https://imperiallondon.sharepoint.com/
+    SHAREPOINT_SITE: HIVInferenceGroup-WP
+    MICS_ORDERLY_PATH: Shared Documents/Data/household surveys/MICS/datasets/archive/mics_rds/20220112-013554-d0ff0834/mics_datasets_rds
   ssh:
     public: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:pub
     private: VAULT:secret/hiv-orderly/deploy-keys/mrc-ide/naomi-orderly:key
