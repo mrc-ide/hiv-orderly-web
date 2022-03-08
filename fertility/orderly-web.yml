@@ -63,7 +63,7 @@ orderly:
   env:
     ORDERLY_API_SERVER_IDENTITY: main
     ## VIMC-3692
-    VAULT_AUTH_GITHUB_TOKEN: mustexist
+    ORDERLYWEB_GITHUB_TOKEN: mustexist
     MC_CORES: 4
     ADR_KEY: VAULT:secret/hiv-orderly/adr:key
     ## Sharepoint access
