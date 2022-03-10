@@ -6,7 +6,7 @@ if [[ $# -eq 0 ]]; then
 Usage: ./orderly_r instance_name
 
 instance_name - fertility, naomi or threemc"
-    exit 0
+    exit 1
 fi
 
 INSTANCE=$1
@@ -14,7 +14,7 @@ CONTAINER=`docker ps --filter name=^${INSTANCE}_orderly$ --filter status=running
 
 if [[ -z $CONTAINER ]]; then
   echo "Could not find container with name ${INSTANCE}_orderly check app is running"
-  exit 0
+  exit 1
 fi
 
 docker exec -it $CONTAINER R
