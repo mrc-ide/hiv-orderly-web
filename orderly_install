@@ -16,6 +16,13 @@ do
     docker exec $CONTAINER Rscript -e $2
 done
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+echo "
+"
 echo "Installation complete"
-echo "ლ(ಠ益ಠ)ლ VERY IMPORTANT (╯°□°）╯︵ ┻━┻"
+echo -e "${CYAN}ʕಠᴥಠʔ ${YELLOW}ಠ_ಠ ${GREEN}ᶘಠᴥಠᶅ ${RED}VERY IMPORTANT ${GREEN}ʕಠᴥಠʔ ${YELLOW}ಠ_ಠ ${CYAN}ᶘಠᴥಠᶅ${NC}"
 echo "Update Dockerfile so the package is available after a redeploy"
