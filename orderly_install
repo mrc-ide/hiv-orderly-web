@@ -18,6 +18,12 @@ do
     docker exec $CONTAINER Rscript -e $@
 done
 
+if [[ $INSTANCE == "naomi" ]]; then
+    URL="https://github.com/mrc-ide/hiv-orderly/blob/main/docker/Dockerfile"
+else
+    URL="https://github.com/mrc-ide/${INSTANCE}-orderly-image/blob/main/docker/Dockerfile"
+fi
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
@@ -28,3 +34,4 @@ echo "
 echo "Installation complete"
 echo -e "${CYAN}ʕಠᴥಠʔ ${YELLOW}ಠ_ಠ ${GREEN}ᶘಠᴥಠᶅ ${RED}VERY IMPORTANT ${GREEN}ʕಠᴥಠʔ ${YELLOW}ಠ_ಠ ${CYAN}ᶘಠᴥಠᶅ${NC}"
 echo "Update Dockerfile so the package is available after a redeploy"
+echo $URL
