@@ -15,3 +15,7 @@ for CONTAINER in $CONTAINERS
 do
     docker exec $CONTAINER Rscript -e $2
 done
+
+echo "Installation complete"
+echo "ლ(ಠ益ಠ)ლ VERY IMPORTANT (╯°□°）╯︵ ┻━┻"
+echo "Update Dockerfile so the package is available after a redeploy"
