@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+if [[ $# -eq 0 ]]; then
+    echo "Start an R session in docker container to use orderly_pull_dependencies or orderly_pull_archive
+
+Usage: ./orderly_r instance_name
+
+instance_name - fertility, naomi or threemc"
+    exit 1
+fi
+
+INSTANCE=$1
+CONTAINER=`docker ps --filter name=^${INSTANCE}_orderly$ --filter status=running -aq`
+
+if [[ -z $CONTAINER ]]; then
+  echo "Could not find container with name ${INSTANCE}_orderly check app is running"
+  exit 1
+fi
+
+docker exec -it $CONTAINER R
