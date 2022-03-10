@@ -7,13 +7,15 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
-CONTAINERS=`docker ps --filter name=$1_orderly* --filter status=running -aq`
-CONTAINER_NAMES=`docker ps --filter name=$1_orderly* --filter status=running --format '{{.Names}}' -a | paste -sd '~ ' | sed 's/~/, /'`
+INSTANCE=$1
+shift
+CONTAINERS=`docker ps --filter name=${INSTANCE}_orderly* --filter status=running -aq`
+CONTAINER_NAMES=`docker ps --filter name=${INSTANCE}_orderly* --filter status=running --format '{{.Names}}' -a | paste -sd '~ ' | sed 's/~/, /'`
 echo "Running Rscript in containers ${CONTAINER_NAMES}"
 
 for CONTAINER in $CONTAINERS
 do
-    docker exec $CONTAINER Rscript -e $2
+    docker exec $CONTAINER Rscript -e $@
 done
 
 RED='\033[0;31m'
