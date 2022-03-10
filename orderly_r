@@ -6,7 +6,7 @@ if [[ $# -eq 0 ]]; then
 Usage: ./orderly_r instance_name
 
 instance_name - fertility, naomi or threemc"
-    exit 0
+    exit 1
 fi
 
 CONTAINER=`docker ps --filter name=^$1_orderly$ --filter status=running -aq`
