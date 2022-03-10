@@ -13,7 +13,7 @@ CONTAINER=`docker ps --filter name=^$1_orderly$ --filter status=running -aq`
 
 if [[ -z $CONTAINER ]]; then
   echo "Could not find container with name $1_orderly check app is running"
-  exit 0
+  exit 1
 fi
 
 docker exec -it $CONTAINER R
