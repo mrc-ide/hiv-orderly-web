@@ -4,7 +4,7 @@ if [[ $# -eq 0 ]]; then
     echo "Usage: ./orderly_install instance_name 'command'
     instance_name - fertility or naomi
     command - The remotes::install_github or install_packages command, remember the quotes"
-    exit 0
+    exit 1
 fi
 
 CONTAINERS=`docker ps --filter name=$1_orderly* --filter status=running -aq`
