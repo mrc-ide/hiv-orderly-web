@@ -58,7 +58,7 @@ orderly:
     tag: main
   initial:
     source: clone
-    url: git@github.com:mrc-ide/inference-data
+    url: git@github.com:mrc-ide/inference-data.git
   workers: 1
   env:
     ORDERLY_API_SERVER_IDENTITY: main
