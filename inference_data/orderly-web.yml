@@ -106,7 +106,7 @@ web:
   ## machines
   dev_mode: false
   ## Port to use for the web service
-  port: 8881
+  port: 8883
   ## Name of the web service (affects the UI)
   name: Outputs
   ## Email address of the web service
