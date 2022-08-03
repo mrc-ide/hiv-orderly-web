@@ -61,7 +61,7 @@ orderly:
     url: git@github.com:mrc-ide/inference-data.git
   workers: 1
   env:
-    ORDERLY_API_SERVER_IDENTITY: inference 
+    ORDERLY_API_SERVER_IDENTITY: inference-web 
     ## VIMC-3692
     ORDERLYWEB_GITHUB_TOKEN: mustexist
     MC_CORES: 4
