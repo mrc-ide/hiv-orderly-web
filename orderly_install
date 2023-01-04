@@ -21,7 +21,8 @@ done
 if [[ $INSTANCE == "naomi" ]]; then
     URL="https://github.com/mrc-ide/hiv-orderly/blob/main/docker/Dockerfile"
 else
-    URL="https://github.com/mrc-ide/${INSTANCE}-orderly-image/blob/main/docker/Dockerfile"
+    INSTANCE_URL=`echo ${INSTANCE} | sed "s/_/-/"`
+    URL="https://github.com/mrc-ide/${INSTANCE_URL}-orderly-image/blob/main/docker/Dockerfile"
 fi
 
 RED='\033[0;31m'
