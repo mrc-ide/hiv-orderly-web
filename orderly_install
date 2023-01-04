@@ -2,7 +2,7 @@
 set -e
 if [[ $# -eq 0 ]]; then
     echo "Usage: ./orderly_install instance_name 'command'
-    instance_name - fertility or naomi
+    instance_name - fertility, naomi, threemc or inference_data
     command - The remotes::install_github or install_packages command, remember the quotes"
     exit 1
 fi
@@ -21,7 +21,8 @@ done
 if [[ $INSTANCE == "naomi" ]]; then
     URL="https://github.com/mrc-ide/hiv-orderly/blob/main/docker/Dockerfile"
 else
-    URL="https://github.com/mrc-ide/${INSTANCE}-orderly-image/blob/main/docker/Dockerfile"
+    INSTANCE_URL=`echo ${INSTANCE} | sed "s/_/-/"`
+    URL="https://github.com/mrc-ide/${INSTANCE_URL}-orderly-image/blob/main/docker/Dockerfile"
 fi
 
 RED='\033[0;31m'
