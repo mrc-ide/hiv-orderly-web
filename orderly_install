@@ -2,7 +2,7 @@
 set -e
 if [[ $# -eq 0 ]]; then
     echo "Usage: ./orderly_install instance_name 'command'
-    instance_name - fertility or naomi
+    instance_name - fertility, naomi, threemc or inference_data
     command - The remotes::install_github or install_packages command, remember the quotes"
     exit 1
 fi
