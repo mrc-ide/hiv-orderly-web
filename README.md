@@ -13,20 +13,57 @@ Ensure that the path that the script is copied into is in your path (on Linux, m
 ### Start
 
 ```
-orderly-web start config
+./start (all | <instance>..)
+```
+
+To start all instances
+
+```
+./start all
+```
+
+To start a specific instance
+
+```
+./start naomi
+```
+
+Notes
+* The name needs to match the dir name in this repo, so for inference data it is `inference_data`
+* The `naomi` instance starts the proxy which proxies all other instances at `hiv-orderly.dide.ic.ac.uk/<instance>`. When other instances are brought up we connect them to the proxy, because of this if you restart the `naomi` instance you must restart all other instances so they can connect to the new proxy.
+
+
+### Stop
+
+```
+./stop (all | <instance>...)
 ```
 
 ### Upgrading
 
-It is possible that the `orderly-web` deploy scripts should be updated
+```
+./stop (all | <instance>..)
+./start (all | <instance>..)
+```
+
+Note that if you restart the `naomi` instance all other instances need to be restarted so they can be added to the proxy configuration.
+
+### Install a package
 
 ```
-pip3 install --user --upgrade orderly-web
+./orderly_install <instance> 'command'
 ```
 
-Then redeploy with:
+e.g.
 
 ```
-orderly-web stop config
-orderly-web start --pull config
+./orderly_install fertility "install.packages(\"dplyr\")"
 ```
+
+### Start an R session in the orderly container
+
+```
+./orderly_r <instance>
+```
+
+You can use this to then run things like `orderly_pull_dependencies` or `orderly_pull_archive`
