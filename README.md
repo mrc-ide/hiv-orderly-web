@@ -1,5 +1,7 @@
 ## hiv-orderly OrderlyWeb configuration
 
+For additional orderly documentation specific to the HIV deployment please see [the wiki](https://github.com/mrc-ide/hiv-docs/wiki/Orderly) this contains information about sharepoint, and OW including how to update a package on the OW server.
+
 ### Prerequisites
 
 First, install the deploy tool
