@@ -148,7 +148,7 @@ proxy:
   port_http: 80
   port_https: 443
   image:
-    repo: mrcide
+    repo: ghcr.io/mrc-ide
     name: hiv-orderly-proxy
     tag: latest
 
